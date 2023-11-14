@@ -10,7 +10,7 @@ This is a repository for Build an LMS Platform: Next.js 13,  React, Stripe, Mux,
 Key Features:
 
 - Browse & Filter Courses
-- Purchase Courses using Stripe
+-  Courses using Stripe
 - Mark Chapters as Completed or Uncompleted
 - Progress Calculation of each Course
 - Student Dashboard

@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import { CircleDollarSign, File, LayoutDashboard, ListChecks } from "lucide-react";
+import { BookOpenCheck, CircleDollarSign, File, GraduationCap, LayoutDashboard, ListChecks } from "lucide-react";
 
 import { db } from "@/lib/db";
 import { IconBadge } from "@/components/icon-badge";
@@ -10,10 +10,11 @@ import { TitleForm } from "./_components/title-form";
 import { DescriptionForm } from "./_components/description-form";
 import { ImageForm } from "./_components/image-form";
 import { CategoryForm } from "./_components/category-form";
-import { PriceForm } from "./_components/price-form";
+//import { PriceForm } from "./_components/price-form";
 import { AttachmentForm } from "./_components/attachment-form";
 import { ChaptersForm } from "./_components/chapters-form";
 import { Actions } from "./_components/actions";
+import { CertificationForm } from "./_components/certification-form";
 
 const CourseIdPage = async ({
   params
@@ -59,7 +60,7 @@ const CourseIdPage = async ({
     course.title,
     course.description,
     course.imageUrl,
-    course.price,
+    // course.price,
     course.categoryId,
     course.chapters.some(chapter => chapter.isPublished),
   ];
@@ -110,7 +111,7 @@ const CourseIdPage = async ({
               initialData={course}
               courseId={course.id}
             />
-            <ImageForm
+              <ImageForm
               initialData={course}
               courseId={course.id}
             />
@@ -136,14 +137,28 @@ const CourseIdPage = async ({
                 courseId={course.id}
               />
             </div>
+            {/* QUIZ FUNCTION */}
             <div>
               <div className="flex items-center gap-x-2">
-                <IconBadge icon={CircleDollarSign} />
+                <IconBadge icon={BookOpenCheck} />
                 <h2 className="text-xl">
-                  Sell your course
+                  Quiz
                 </h2>
               </div>
-              <PriceForm
+              <ChaptersForm
+                initialData={course}
+                courseId={course.id}
+              />
+            </div>
+            {/* CERTIFICATION*/}
+            <div>
+              <div className="flex items-center gap-x-2">
+                <IconBadge icon={GraduationCap} />
+                <h2 className="text-xl">
+                  Upload Certificate
+                </h2>
+              </div>
+              <CertificationForm
                 initialData={course}
                 courseId={course.id}
               />

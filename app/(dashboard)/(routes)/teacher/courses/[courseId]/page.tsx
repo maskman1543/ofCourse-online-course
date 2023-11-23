@@ -15,6 +15,7 @@ import { AttachmentForm } from "./_components/attachment-form";
 import { ChaptersForm } from "./_components/chapters-form";
 import { Actions } from "./_components/actions";
 import { CertificationForm } from "./_components/certification-form";
+import { QuizForm } from "./_components/quiz-form";
 
 const CourseIdPage = async ({
   params
@@ -145,7 +146,7 @@ const CourseIdPage = async ({
                   Quiz
                 </h2>
               </div>
-              <ChaptersForm
+              < QuizForm
                 initialData={course}
                 courseId={course.id}
               />
